@@ -2,6 +2,7 @@ import dlib
 import cv2
 import os
 import numpy as np
+from utils.path import make_dir_if_needed
 
 # 1.creating a video object
 video = cv2.VideoCapture(0)
@@ -9,6 +10,9 @@ video = cv2.VideoCapture(0)
 a = 0
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor('model/shape_predictor_68_face_landmarks.dat')
+
+make_dir_if_needed('data/my/images')
+make_dir_if_needed('data/my/landmarks')
 
 # 3. While loop
 while True:
@@ -18,10 +22,10 @@ while True:
     # Converting to grayscale
     shapes = detector(frame)
     for s in shapes:
-        left = s.left() - 20
-        right = s.right() + 20
-        top = s.top() - 20
-        bottom = s.bottom() + 20
+        left = s.left() - 40
+        right = s.right() + 40
+        top = s.top() - 40
+        bottom = s.bottom() + 40
 
         landmarks = predictor(frame, s)
 
@@ -33,7 +37,7 @@ while True:
         for i in range(68):
             p = landmarks.part(i)
             cv2.circle(frame, (p.x, p.y), 1, (0, 0, 255), -1)
-            landmarks_np = np.append(landmarks_np, [[p.x + left, p.y + top]], axis=0)
+            landmarks_np = np.append(landmarks_np, [[p.x - left, p.y - top]], axis=0)
         cv2.imwrite('data/my/images/{}.png'.format(rec), face_segment)
         np.save('data/my/landmarks/{}.npy'.format(rec), landmarks_np)
 

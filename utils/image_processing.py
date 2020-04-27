@@ -9,9 +9,11 @@ def resize_image(image, size=256):
 
 
 def pad_image(image, size=(256, 256)):
-    assert size[0] >= image.shape[1] and size[1] >= image.shape[0]
     dx = size[0] - image.shape[1]
     dy = size[1] - image.shape[0]
+
+    dx = dx if dx >= 0 else 0
+    dy = dy if dy >= 0 else 0
 
     value = ((0, dy), (0, dx), (0, 0)) if image.ndim == 3 else ((0, dy), (0, dx))
 

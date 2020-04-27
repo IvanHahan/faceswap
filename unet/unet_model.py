@@ -42,6 +42,6 @@ class UNet(nn.Module):
 
 
 if __name__ == '__main__':
-    model = UNet(3, 1)
-    input = torch.from_numpy(np.ones((1, 3, 256, 256))).float()
+    model = UNet(4, 3)
+    input = torch.from_numpy(np.ones((1, 4, 256, 256))).float()
     print(model(input).shape)
