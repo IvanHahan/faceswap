@@ -185,7 +185,7 @@
       <workItem from="1587808487735" duration="21659000" />
       <workItem from="1588089934471" duration="10380000" />
       <workItem from="1588147652005" duration="44000" />
-      <workItem from="1588271995473" duration="8879000" />
+      <workItem from="1588271995473" duration="10248000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1587830273080</created>
@@ -250,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588330432433</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="change unet output to tanh">
+      <created>1588351979744</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1588351979744</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,17 +268,18 @@
     <MESSAGE value="  update train script" />
     <MESSAGE value="add cuda" />
     <MESSAGE value="fix triple loss" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix triple loss" />
+    <MESSAGE value="change unet output to tanh" />
+    <option name="LAST_COMMIT_MESSAGE" value="change unet output to tanh" />
   </component>
   <component name="WindowStateProjectService">
     <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1588273320021">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1588273320021" />
-    <state x="314" y="52" key="CommitChangelistDialog2" timestamp="1588330432181">
+    <state x="314" y="52" key="CommitChangelistDialog2" timestamp="1588351979382">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="314" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1588330432181" />
+    <state x="314" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1588351979382" />
     <state width="1440" height="438" key="DebuggerActiveHint" timestamp="1588146767184">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -324,14 +332,14 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="229" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1588091679854" />
-    <state width="500" height="445" key="SwitcherDM" timestamp="1588351807235">
+    <state width="500" height="445" key="SwitcherDM" timestamp="1588352646819">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="500" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1588351807235" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1588330434432">
+    <state width="500" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1588352646819" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1588351981054">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1588330434432" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1588351981054" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1587924427810">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -344,11 +352,6 @@
           <url>file://$PROJECT_DIR$/datasets/my.py</url>
           <line>98</line>
           <option name="timeStamp" value="40" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/train.py</url>
-          <line>78</line>
-          <option name="timeStamp" value="42" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

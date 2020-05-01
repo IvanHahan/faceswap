@@ -91,10 +91,8 @@ for e in range(epochs):
     print(losses[-1])
     if e % verbosity == 0:
         fst = first[0].cpu().numpy()[0].transpose([1, 2, 0]) * 127.5 + 127.5
-        fst += 127.5
         fst = fst.astype('uint8')
         snd = second[0].cpu().numpy()[0].transpose([1, 2, 0]) * 127.5 + 127.5
-        snd += 127.5
         snd = snd.astype('uint8')
         out = gen_out.detach().cpu().numpy()[0].transpose([1, 2, 0]) * 127.5 + 127.5
         out = out.astype('uint8')
