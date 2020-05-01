@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8e781d03-f2c9-4911-8fb7-5950b24d2fcb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datasets/my.py" beforeDir="false" afterPath="$PROJECT_DIR$/datasets/my.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -185,7 +186,7 @@
       <workItem from="1587808487735" duration="21659000" />
       <workItem from="1588089934471" duration="10380000" />
       <workItem from="1588147652005" duration="44000" />
-      <workItem from="1588271995473" duration="5798000" />
+      <workItem from="1588271995473" duration="7632000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1587830273080</created>
@@ -229,7 +230,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588319438751</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add cuda">
+      <created>1588319566911</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1588319566911</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,10 +254,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1588273320021" />
-    <state x="314" y="52" key="CommitChangelistDialog2" timestamp="1588319438488">
+    <state x="314" y="52" key="CommitChangelistDialog2" timestamp="1588319566647">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="314" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1588319438488" />
+    <state x="314" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1588319566647" />
     <state width="1440" height="438" key="DebuggerActiveHint" timestamp="1588146767184">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -302,14 +310,14 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="229" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1588091679854" />
-    <state width="500" height="445" key="SwitcherDM" timestamp="1588318846700">
+    <state width="500" height="445" key="SwitcherDM" timestamp="1588321806584">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="500" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1588318846700" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1588319443400">
+    <state width="500" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1588321806584" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1588319569406">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1588319443400" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1588319569406" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1587924427810">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -320,12 +328,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/datasets/my.py</url>
-          <line>96</line>
+          <line>98</line>
           <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/train.py</url>
-          <line>67</line>
+          <line>68</line>
           <option name="timeStamp" value="41" />
         </line-breakpoint>
       </breakpoints>

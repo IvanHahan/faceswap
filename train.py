@@ -20,6 +20,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--data_dir', default=abs_path('data/my'))
 parser.add_argument('--device', default='cpu')
 parser.add_argument('--verbosity', default=1, type=int)
+parser.add_argument('--l_triple', default=1, type=float)
+parser.add_argument('--l_adv', default=0.01, type=float)
 args = parser.parse_args()
 
 np.random.seed(12)
@@ -43,12 +45,12 @@ losses = []
 
 for e in range(epochs):
     print('EPOCH {}'.format(e))
-    for first, second in tqdm(DataLoader(gl_data_sampler, batch_size=1)):
+    for first, second, third in tqdm(DataLoader(gl_data_sampler, batch_size=1)):
 
         discriminator.train(True)
         generator.train(True)
 
-        for d_first, d_second in DataLoader(disc_data_sampler, batch_size=1):
+        for d_first, d_second, _ in DataLoader(disc_data_sampler, batch_size=1):
 
             disc_optim.zero_grad()
             gen_in = torch.cat([d_first[0], d_second[1]], 1)
@@ -63,23 +65,22 @@ for e in range(epochs):
             disc_optim.step()
 
         gen_optim.zero_grad()
-        gen_in = torch.cat([first[0], second[1]], 1)
 
-        gen_out = generator(gen_in)
+        gen_out = generator(torch.cat([first[0], second[1]], 1))
         fake_out = discriminator(gen_out).view((-1))
 
         label = torch.Tensor([1]).to(device)
 
-        bce_loss = F.binary_cross_entropy(fake_out, label)
+        adv_loss = F.binary_cross_entropy(fake_out, label)
 
-        gen_out_processed = ((gen_out.detach() * 255.) - 127.5) / 127.5
-        gen_out_in = torch.cat([gen_out_processed, first[1]], 1)
-        reconstr_out = generator(gen_out_in)
-        reconstr_processed = ((reconstr_out * 255.) - 127.5) / 127.5
+        I_ = ((gen_out.detach() * 255.) - 127.5) / 127.5
 
-        reconstr_loss = torch.abs(reconstr_processed - first[0]).mean()
+        GI = generator(torch.cat([first[0], third[1]], 1))
+        GI_ = generator(torch.cat([I_[0], third[1]], 1))
 
-        loss = reconstr_loss + bce_loss
+        triple_loss = torch.square(GI_ - GI).mean()
+
+        loss = args.l_triple * triple_loss + args.l_adv * adv_loss
         losses.append(loss.item())
 
         loss.backward()
