@@ -37,8 +37,8 @@ class UNet(nn.Module):
         x = self.up3(x, x2)
         x = self.up4(x, x1)
         logits = self.outc(x)
-        sigmoid = torch.sigmoid(logits)
-        return sigmoid
+        tanh = torch.tanh(logits)
+        return tanh
 
 
 if __name__ == '__main__':

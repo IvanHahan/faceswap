@@ -14,6 +14,7 @@ from tqdm import tqdm
 from matplotlib import pyplot as plt
 import argparse
 import cv2
+from utils.path import make_dir_if_needed
 
 
 parser = argparse.ArgumentParser()
@@ -31,6 +32,8 @@ epochs = 100
 steps_discriminator = 3
 device = args.device
 verbosity = args.verbosity
+
+make_dir_if_needed('images')
 
 generator = UNet(71, 3, False).to(device)
 discriminator = Discriminator(3, 64).to(device)
@@ -73,8 +76,7 @@ for e in range(epochs):
 
         adv_loss = F.binary_cross_entropy(fake_out, label)
 
-        I_ = ((gen_out.detach() * 255.) - 127.5) / 127.5
-
+        I_ = gen_out.detach()
         GI = generator(torch.cat([first[0], third[1]], 1))
         GI_ = generator(torch.cat([I_, third[1]], 1))
 
@@ -88,15 +90,15 @@ for e in range(epochs):
 
     print(losses[-1])
     if e % verbosity == 0:
-        fst = first[0].cpu().numpy()[0].transpose([1, 2, 0]) * 127.5
+        fst = first[0].cpu().numpy()[0].transpose([1, 2, 0]) * 127.5 + 127.5
         fst += 127.5
         fst = fst.astype('uint8')
-        snd = second[0].cpu().numpy()[0].transpose([1, 2, 0]) * 127.5
+        snd = second[0].cpu().numpy()[0].transpose([1, 2, 0]) * 127.5 + 127.5
         snd += 127.5
         snd = snd.astype('uint8')
-        out = gen_out.detach().cpu().numpy()[0].transpose([1, 2, 0]) * 255
+        out = gen_out.detach().cpu().numpy()[0].transpose([1, 2, 0]) * 127.5 + 127.5
         out = out.astype('uint8')
-        cv2.imwrite(f'{e}.png', out)
+        cv2.imwrite(f'images/{e}.png', out)
         plt.imshow(fst)
         plt.show()
         plt.imshow(snd)
