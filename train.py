@@ -76,7 +76,7 @@ for e in range(epochs):
         I_ = ((gen_out.detach() * 255.) - 127.5) / 127.5
 
         GI = generator(torch.cat([first[0], third[1]], 1))
-        GI_ = generator(torch.cat([I_[0], third[1]], 1))
+        GI_ = generator(torch.cat([I_, third[1]], 1))
 
         triple_loss = torch.square(GI_ - GI).mean()
 
