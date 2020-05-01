@@ -19,7 +19,7 @@ import cv2
 parser = argparse.ArgumentParser()
 parser.add_argument('--data_dir', default=abs_path('data/my'))
 parser.add_argument('--device', default='cpu')
-parser.add_argument('--verbosity', default=0, type=int)
+parser.add_argument('--verbosity', default=1, type=int)
 args = parser.parse_args()
 
 np.random.seed(12)
@@ -87,13 +87,13 @@ for e in range(epochs):
 
     print(losses[-1])
     if e % verbosity == 0:
-        fst = first[0].numpy()[0].transpose([1, 2, 0]) * 127.5
+        fst = first[0].cpu().numpy()[0].transpose([1, 2, 0]) * 127.5
         fst += 127.5
         fst = fst.astype('uint8')
-        snd = second[0].numpy()[0].transpose([1, 2, 0]) * 127.5
+        snd = second[0].cpu().numpy()[0].transpose([1, 2, 0]) * 127.5
         snd += 127.5
         snd = snd.astype('uint8')
-        out = gen_out.detach().numpy()[0].transpose([1, 2, 0]) * 255
+        out = gen_out.detach().cpu().numpy()[0].transpose([1, 2, 0]) * 255
         out = out.astype('uint8')
         cv2.imwrite(f'{e}.png', out)
         plt.imshow(fst)
