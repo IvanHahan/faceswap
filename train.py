@@ -19,7 +19,7 @@ import cv2
 parser = argparse.ArgumentParser()
 parser.add_argument('--data_dir', default=abs_path('data/my'))
 parser.add_argument('--device', default='cpu')
-parser.add_argument('--verbosity', default=0)
+parser.add_argument('--verbosity', default=0, type=int)
 args = parser.parse_args()
 
 np.random.seed(12)
