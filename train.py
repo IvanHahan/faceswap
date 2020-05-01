@@ -57,8 +57,8 @@ for e in range(epochs):
             true_out = discriminator(d_first[0]).view((-1))
             fake_out = discriminator(gen_out.detach()).view((-1))
             pred = torch.cat((fake_out, true_out), 0)
-            label = torch.Tensor([0, 1])
-            bce_loss = F.binary_cross_entropy(pred.to(device), label.to(device)).to(device)
+            label = torch.Tensor([0, 1]).to(device)
+            bce_loss = F.binary_cross_entropy(pred, label)
             bce_loss.backward()
             disc_optim.step()
 
@@ -68,7 +68,7 @@ for e in range(epochs):
         gen_out = generator(gen_in)
         fake_out = discriminator(gen_out).view((-1))
 
-        label = torch.Tensor([1])
+        label = torch.Tensor([1]).to(device)
 
         bce_loss = F.binary_cross_entropy(fake_out, label)
 
