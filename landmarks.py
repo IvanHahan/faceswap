@@ -22,22 +22,29 @@ while True:
     # Converting to grayscale
     shapes = detector(frame)
     for s in shapes:
-        left = s.left() - 40
-        right = s.right() + 40
-        top = s.top() - 40
-        bottom = s.bottom() + 40
 
         landmarks = predictor(frame, s)
 
-        rec = len(os.listdir('data/my/images'))
-        face_segment = frame[top:bottom, left:right].copy()
-
-        cv2.rectangle(frame, (left, top), (right, bottom), (0, 255, 140), 2)
         landmarks_np = np.zeros((0, 2), dtype='int32')
         for i in range(68):
             p = landmarks.part(i)
+            landmarks_np = np.append(landmarks_np, [[p.x, p.y]], axis=0)
+
+        rec = len(os.listdir('data/my/images'))
+        top = landmarks_np[:, 1].min() - 10
+        bottom = landmarks_np[:, 1].max() + 10
+        left = landmarks_np[:, 0].min() - 10
+        right = landmarks_np[:, 0].max() + 10
+        face_segment = frame[top:bottom, left:right].copy()
+
+        landmarks_np[:, 0] -= left
+        landmarks_np[:, 1] -= top
+
+        cv2.rectangle(frame, (left, top), (right, bottom), (0, 255, 140), 2)
+        for i in range(68):
+            p = landmarks.part(i)
             cv2.circle(frame, (p.x, p.y), 1, (0, 0, 255), -1)
-            landmarks_np = np.append(landmarks_np, [[p.x - left, p.y - top]], axis=0)
+
         cv2.imwrite('data/my/images/{}.png'.format(rec), face_segment)
         np.save('data/my/landmarks/{}.npy'.format(rec), landmarks_np)
 

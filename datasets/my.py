@@ -7,6 +7,8 @@ from torch.utils.data import Dataset
 
 from utils.image_processing import resize_image, pad_image
 from utils.path import abs_path
+import matplotlib.pyplot as plt
+import numpy as np
 
 
 class MyDataset(Dataset):
@@ -26,28 +28,37 @@ class MyDataset(Dataset):
         max_landmark_x = np.max(landmarks[:, 0]) + 1
         max_landmark_y = np.max(landmarks[:, 1]) + 1
         image = pad_image(image, (max_landmark_x, max_landmark_y))[0]
-        canvas = np.zeros(image.shape[:2], dtype='float32')
+        heatmaps = []
         for l in landmarks:
-            canvas[l[1], l[0]] = 1
-        landmarks = canvas
+            canvas = np.zeros(image.shape[:2], dtype='float32')
+            cv2.circle(canvas, (l[0], l[1]), 5, 1, -1)
+            heatmaps.append(canvas)
+        landmarks = np.array(heatmaps)
 
         image, landmarks = self._resize_sample(image, landmarks)
         image, landmarks = self._pad_sample(image, landmarks)
         image = (image - 127.5) / 127.5
 
         image = np.transpose(image, [2, 0, 1])
-        landmarks = np.expand_dims(landmarks, 0)
 
         return image, landmarks
 
     def _resize_sample(self, image, landmarks):
         image = resize_image(image, self.size)
-        landmarks = resize_image(landmarks, self.size)
+        resized_landmarks = []
+        for l in landmarks:
+            l = resize_image(l, self.size)
+            resized_landmarks.append(l)
+        landmarks = np.array(resized_landmarks)
         return image, landmarks
 
     def _pad_sample(self, image, landmarks):
         image = pad_image(image, (self.size, self.size))[0]
-        landmarks = pad_image(landmarks, (self.size, self.size))[0]
+        padded_landmarks = []
+        for l in landmarks:
+            l = pad_image(l, (self.size, self.size))[0]
+            padded_landmarks.append(l)
+        landmarks = np.array(padded_landmarks)
         return image, landmarks
 
     def __len__(self):
@@ -76,7 +87,15 @@ class MyDatasetSampler(MyDataset):
 
 
 if __name__ == '__main__':
-    dataset = MyDatasetSampler(abs_path('data/my'))
+    dataset = MyDatasetSampler(abs_path('data/my'), 'cpu')
     loader = torch.utils.data.DataLoader(dataset)
     for i in loader:
-        print(dataset[0])
+        fst = i[0][0].numpy()[0].transpose([1, 2, 0]) * 127.5
+        fst += 127.5
+        fst = fst.astype('uint8')
+        mask = i[0][1].numpy()[0]
+        mask = np.bitwise_or.reduce(mask > 0, axis=0).astype('uint8')
+        plt.imshow(mask)
+        plt.show()
+        plt.imshow(fst)
+        plt.show()
