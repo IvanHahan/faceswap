@@ -23,9 +23,10 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--data_dir', default=abs_path('data/my'))
 parser.add_argument('--device', default='cpu')
 parser.add_argument('--verbosity', default=1, type=int)
-parser.add_argument('--l_triple', default=1, type=float)
-parser.add_argument('--l_adv', default=0.01, type=float)
-parser.add_argument('--l_rec', default=0.7, type=float)
+parser.add_argument('--l_triple', default=100, type=float)
+parser.add_argument('--l_adv', default=1, type=float)
+parser.add_argument('--l_rec', default=100, type=float)
+parser.add_argument('--l_pix', default=10, type=float)
 args = parser.parse_args()
 
 np.random.seed(12)
@@ -59,6 +60,9 @@ for e in range(epochs):
 
         for d_first, d_second, _ in DataLoader(disc_data_sampler, batch_size=1):
 
+            fst = d_first[0].cpu().numpy()[0].transpose([1, 2, 0]) * 127.5 + 127.5
+            fst = fst.astype('uint8')
+
             disc_optim.zero_grad()
             gen_in = torch.cat([d_first[0], d_second[1]], 1)
 
@@ -74,6 +78,9 @@ for e in range(epochs):
         gen_optim.zero_grad()
 
         gen_out = generator(torch.cat([first[0], second[1]], 1))
+
+        pix_loss = torch.square(gen_out - second[1]).mean()
+
         fake_out = discriminator(gen_out).view((-1))
 
         label = torch.Tensor([1]).to(device)
@@ -91,7 +98,8 @@ for e in range(epochs):
 
         triple_loss = torch.square(GI_ - GI).mean()
 
-        loss = args.l_triple * triple_loss + args.l_adv * adv_loss + args.l_rec * rec_loss
+        loss = args.l_triple * triple_loss + args.l_adv * adv_loss + \
+               args.l_rec * rec_loss + args.l_pix * pix_loss
         losses.append(loss.item())
 
         loss.backward()
