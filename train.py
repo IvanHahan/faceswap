@@ -60,9 +60,6 @@ for e in range(epochs):
 
         for d_first, d_second, _ in DataLoader(disc_data_sampler, batch_size=1):
 
-            fst = d_first[0].cpu().numpy()[0].transpose([1, 2, 0]) * 127.5 + 127.5
-            fst = fst.astype('uint8')
-
             disc_optim.zero_grad()
             gen_in = torch.cat([d_first[0], d_second[1]], 1)
 
@@ -79,7 +76,7 @@ for e in range(epochs):
 
         gen_out = generator(torch.cat([first[0], second[1]], 1))
 
-        pix_loss = torch.square(gen_out - second[1]).mean()
+        pix_loss = torch.square(gen_out - second[0]).mean()
 
         fake_out = discriminator(gen_out).view((-1))
 
