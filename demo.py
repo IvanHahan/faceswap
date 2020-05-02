@@ -13,7 +13,7 @@ parser.add_argument('--device', default='cpu')
 
 args = parser.parse_args()
 
-generator = torch.load('model/generator10.pth', map_location='cpu')
+generator = torch.load('model/generator9.pth', map_location='cpu')
 generator.train(False)
 
 gl_data_sampler = MyDatasetSampler(args.data_dir, args.device, size=64)

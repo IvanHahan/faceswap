@@ -16,6 +16,7 @@ import argparse
 import cv2
 from utils.path import make_dir_if_needed
 from ranger import ranger
+from percept_loss import PerceptualLoss
 
 
 
@@ -23,10 +24,12 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--data_dir', default=abs_path('data/my'))
 parser.add_argument('--device', default='cpu')
 parser.add_argument('--verbosity', default=1, type=int)
+parser.add_argument('--size', default=128, type=int)
 parser.add_argument('--l_triple', default=100, type=float)
 parser.add_argument('--l_adv', default=1, type=float)
 parser.add_argument('--l_rec', default=100, type=float)
 parser.add_argument('--l_pix', default=10, type=float)
+parser.add_argument('--l_percept', default=10, type=float)
 args = parser.parse_args()
 
 np.random.seed(12)
@@ -40,11 +43,13 @@ verbosity = args.verbosity
 make_dir_if_needed('images')
 make_dir_if_needed('model')
 
-generator = UNet(71, 3, False).to(device)
+generator = UNet(args.size, 3, False).to(device)
 discriminator = Discriminator(3, 64).to(device)
 
-gl_data_sampler = MyDatasetSampler(args.data_dir, device, size=64)
-disc_data_sampler = MyDatasetSampler(args.data_dir, device, length=3, size=64)
+gl_data_sampler = MyDatasetSampler(args.data_dir, device, size=args.size)
+disc_data_sampler = MyDatasetSampler(args.data_dir, device, length=3, size=args.size)
+
+compute_perceptual = PerceptualLoss()
 
 gen_optim = ranger(generator.parameters())
 disc_optim = ranger(discriminator.parameters())
@@ -78,6 +83,8 @@ for e in range(epochs):
 
         pix_loss = torch.square(gen_out - second[0]).mean()
 
+        percept_loss = compute_perceptual(gen_out, second[0])
+
         fake_out = discriminator(gen_out).view((-1))
 
         label = torch.Tensor([1]).to(device)
@@ -96,7 +103,7 @@ for e in range(epochs):
         triple_loss = torch.square(GI_ - GI).mean()
 
         loss = args.l_triple * triple_loss + args.l_adv * adv_loss + \
-               args.l_rec * rec_loss + args.l_pix * pix_loss
+               args.l_rec * rec_loss + args.l_pix * pix_loss + args.l_percept * percept_loss
         losses.append(loss.item())
 
         loss.backward()
