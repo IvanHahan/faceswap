@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e781d03-f2c9-4911-8fb7-5950b24d2fcb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ranger/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ranger/lookahead.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +42,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ranger" />
       <recent name="$PROJECT_DIR$/utils" />
       <recent name="$PROJECT_DIR$/model" />
       <recent name="$PROJECT_DIR$" />
@@ -189,7 +186,7 @@
       <workItem from="1588089934471" duration="10380000" />
       <workItem from="1588147652005" duration="44000" />
       <workItem from="1588271995473" duration="10863000" />
-      <workItem from="1588395298704" duration="369000" />
+      <workItem from="1588395298704" duration="597000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1587830273080</created>
@@ -268,7 +265,21 @@
       <option name="project" value="LOCAL" />
       <updated>1588353119951</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="add ranger optim">
+      <created>1588395723518</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1588395723518</updated>
+    </task>
+    <task id="LOCAL-00013" summary="integrate ranger optim">
+      <created>1588395780886</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1588395780886</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,17 +291,19 @@
     <MESSAGE value="add cuda" />
     <MESSAGE value="fix triple loss" />
     <MESSAGE value="change unet output to tanh" />
-    <option name="LAST_COMMIT_MESSAGE" value="change unet output to tanh" />
+    <MESSAGE value="add ranger optim" />
+    <MESSAGE value="integrate ranger optim" />
+    <option name="LAST_COMMIT_MESSAGE" value="integrate ranger optim" />
   </component>
   <component name="WindowStateProjectService">
     <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1588273320021">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1588273320021" />
-    <state x="314" y="52" key="CommitChangelistDialog2" timestamp="1588395723126">
+    <state x="314" y="52" key="CommitChangelistDialog2" timestamp="1588395780629">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="314" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1588395723126" />
+    <state x="314" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1588395780629" />
     <state width="1440" height="438" key="DebuggerActiveHint" timestamp="1588146767184">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -347,10 +360,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="500" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1588352646819" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1588395724921">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1588395782947">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1588395724921" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1588395782947" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1587924427810">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

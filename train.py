@@ -99,6 +99,7 @@ for e in range(epochs):
         out = gen_out.detach().cpu().numpy()[0].transpose([1, 2, 0]) * 127.5 + 127.5
         out = out.astype('uint8')
         cv2.imwrite(f'images/{e}.png', out)
+        torch.save(generator, f'model/generator{e}.pth')
         plt.imshow(fst)
         plt.show()
         plt.imshow(snd)
