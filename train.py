@@ -17,6 +17,7 @@ import cv2
 from utils.path import make_dir_if_needed
 
 
+
 parser = argparse.ArgumentParser()
 parser.add_argument('--data_dir', default=abs_path('data/my'))
 parser.add_argument('--device', default='cpu')
