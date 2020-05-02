@@ -43,8 +43,8 @@ verbosity = args.verbosity
 make_dir_if_needed('images')
 make_dir_if_needed('model')
 
-generator = UNet(args.size, 3, False).to(device)
-discriminator = Discriminator(3, 64).to(device)
+generator = UNet(71, 3, False).to(device)
+discriminator = Discriminator(3, args.size).to(device)
 
 gl_data_sampler = MyDatasetSampler(args.data_dir, device, size=args.size)
 disc_data_sampler = MyDatasetSampler(args.data_dir, device, length=3, size=args.size)

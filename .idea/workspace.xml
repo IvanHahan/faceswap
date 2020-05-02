@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e781d03-f2c9-4911-8fb7-5950b24d2fcb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/percept_loss.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +50,7 @@
       <recent name="$PROJECT_DIR$/unet" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.percept_loss">
+  <component name="RunManager" selected="Python.train">
     <configuration name="demo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="fsgan" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -165,11 +163,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.percept_loss" />
-        <item itemvalue="Python.demo" />
-        <item itemvalue="Python.landmarks" />
         <item itemvalue="Python.train" />
         <item itemvalue="Python.unet_model" />
+        <item itemvalue="Python.landmarks" />
+        <item itemvalue="Python.percept_loss" />
+        <item itemvalue="Python.demo" />
       </list>
     </recent_temporary>
   </component>
@@ -189,7 +187,7 @@
       <workItem from="1588089934471" duration="10380000" />
       <workItem from="1588147652005" duration="44000" />
       <workItem from="1588271995473" duration="10863000" />
-      <workItem from="1588395298704" duration="7106000" />
+      <workItem from="1588395298704" duration="8079000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1587830273080</created>
@@ -317,7 +315,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588426499740</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="add perceptual loss">
+      <created>1588432745770</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1588432745770</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,64 +338,69 @@
     <MESSAGE value="integrate ranger optim" />
     <MESSAGE value="add rec loss" />
     <MESSAGE value="add pixel loss" />
-    <option name="LAST_COMMIT_MESSAGE" value="add pixel loss" />
+    <MESSAGE value="add perceptual loss" />
+    <option name="LAST_COMMIT_MESSAGE" value="add perceptual loss" />
   </component>
   <component name="WindowStateProjectService">
     <state x="429" y="260" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588430311218">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="429" y="260" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1588430311218" />
-    <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1588429220745">
+    <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1588432845744">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1588429220745" />
-    <state x="314" y="52" key="CommitChangelistDialog2" timestamp="1588426499312">
+    <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1588432845744" />
+    <state x="314" y="52" key="CommitChangelistDialog2" timestamp="1588432745491">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="314" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1588426499312" />
+    <state x="314" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1588432745491" />
     <state width="1440" height="438" key="DebuggerActiveHint" timestamp="1588146767184">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1440" height="438" key="DebuggerActiveHint/0.0.1440.900@0.0.1440.900" timestamp="1588146767184" />
-    <state width="1398" height="285" key="GridCell.Tab.0.bottom" timestamp="1588431913161">
+    <state x="100" y="100" width="1240" height="700" key="DiffContextDialog" timestamp="1588433547003">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="285" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1588431913161" />
+    <state x="100" y="100" width="1240" height="700" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1588433547003" />
+    <state width="1398" height="237" key="GridCell.Tab.0.bottom" timestamp="1588433528394">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="237" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1588433528394" />
     <state width="1398" height="286" key="GridCell.Tab.0.bottom/0.23.1440.812@0.23.1440.812" timestamp="1588357590083" />
-    <state width="1398" height="285" key="GridCell.Tab.0.center" timestamp="1588431913160">
+    <state width="1398" height="237" key="GridCell.Tab.0.center" timestamp="1588433528393">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="285" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1588431913160" />
+    <state width="1398" height="237" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1588433528393" />
     <state width="1398" height="286" key="GridCell.Tab.0.center/0.23.1440.812@0.23.1440.812" timestamp="1588357590082" />
-    <state width="1398" height="285" key="GridCell.Tab.0.left" timestamp="1588431913160">
+    <state width="1398" height="237" key="GridCell.Tab.0.left" timestamp="1588433528392">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="285" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1588431913160" />
+    <state width="1398" height="237" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1588433528392" />
     <state width="1398" height="286" key="GridCell.Tab.0.left/0.23.1440.812@0.23.1440.812" timestamp="1588357590081" />
-    <state width="1398" height="285" key="GridCell.Tab.0.right" timestamp="1588431913161">
+    <state width="1398" height="237" key="GridCell.Tab.0.right" timestamp="1588433528394">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="285" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1588431913161" />
+    <state width="1398" height="237" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1588433528394" />
     <state width="1398" height="286" key="GridCell.Tab.0.right/0.23.1440.812@0.23.1440.812" timestamp="1588357590083" />
-    <state width="1398" height="285" key="GridCell.Tab.1.bottom" timestamp="1588431913163">
+    <state width="1398" height="285" key="GridCell.Tab.1.bottom" timestamp="1588433463185">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="285" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1588431913163" />
+    <state width="1398" height="285" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1588433463185" />
     <state width="1398" height="285" key="GridCell.Tab.1.bottom/0.23.1440.812@0.23.1440.812" timestamp="1588430324797" />
-    <state width="1398" height="285" key="GridCell.Tab.1.center" timestamp="1588431913162">
+    <state width="1398" height="285" key="GridCell.Tab.1.center" timestamp="1588433463184">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="285" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1588431913162" />
+    <state width="1398" height="285" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1588433463184" />
     <state width="1398" height="285" key="GridCell.Tab.1.center/0.23.1440.812@0.23.1440.812" timestamp="1588430324797" />
-    <state width="1398" height="285" key="GridCell.Tab.1.left" timestamp="1588431913162">
+    <state width="1398" height="285" key="GridCell.Tab.1.left" timestamp="1588433463183">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="285" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1588431913162" />
+    <state width="1398" height="285" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1588433463183" />
     <state width="1398" height="285" key="GridCell.Tab.1.left/0.23.1440.812@0.23.1440.812" timestamp="1588430324796" />
-    <state width="1398" height="285" key="GridCell.Tab.1.right" timestamp="1588431913163">
+    <state width="1398" height="285" key="GridCell.Tab.1.right" timestamp="1588433463184">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="285" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1588431913163" />
+    <state width="1398" height="285" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1588433463184" />
     <state width="1398" height="285" key="GridCell.Tab.1.right/0.23.1440.812@0.23.1440.812" timestamp="1588430324797" />
     <state x="502" y="168" key="RollbackChangesDialog" timestamp="1587830261236">
       <screen x="0" y="0" width="1440" height="900" />
@@ -400,14 +410,14 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="229" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1588091679854" />
-    <state width="500" height="445" key="SwitcherDM" timestamp="1588432558876">
+    <state width="500" height="445" key="SwitcherDM" timestamp="1588433480241">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="500" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1588432558876" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1588426502205">
+    <state width="500" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1588433480241" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1588432756096">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1588426502205" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1588432756096" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1587924427810">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -432,10 +442,10 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/fsgan$my.coverage" NAME="my Coverage Results" MODIFIED="1588273249633" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/datasets" />
     <SUITE FILE_PATH="coverage/fsgan$discriminator.coverage" NAME="discriminator Coverage Results" MODIFIED="1587823672972" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/fsgan$train.coverage" NAME="train Coverage Results" MODIFIED="1588410982596" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/fsgan$train.coverage" NAME="train Coverage Results" MODIFIED="1588433528387" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/fsgan$percept_loss.coverage" NAME="percept_loss Coverage Results" MODIFIED="1588431913139" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/fsgan$landmarks.coverage" NAME="landmarks Coverage Results" MODIFIED="1588427703381" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/fsgan$demo.coverage" NAME="demo Coverage Results" MODIFIED="1588430319108" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/fsgan$unet_model.coverage" NAME="unet_model Coverage Results" MODIFIED="1588351950525" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/unet" />
+    <SUITE FILE_PATH="coverage/fsgan$landmarks.coverage" NAME="landmarks Coverage Results" MODIFIED="1588432805027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/fsgan$unet_model.coverage" NAME="unet_model Coverage Results" MODIFIED="1588433412094" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/unet" />
   </component>
 </project>
