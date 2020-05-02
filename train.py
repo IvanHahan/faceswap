@@ -49,7 +49,7 @@ discriminator = Discriminator(3, args.size).to(device)
 gl_data_sampler = MyDatasetSampler(args.data_dir, device, size=args.size)
 disc_data_sampler = MyDatasetSampler(args.data_dir, device, length=3, size=args.size)
 
-compute_perceptual = PerceptualLoss()
+compute_perceptual = PerceptualLoss().to(device)
 
 gen_optim = ranger(generator.parameters())
 disc_optim = ranger(discriminator.parameters())
