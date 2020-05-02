@@ -25,6 +25,7 @@ parser.add_argument('--device', default='cpu')
 parser.add_argument('--verbosity', default=1, type=int)
 parser.add_argument('--l_triple', default=1, type=float)
 parser.add_argument('--l_adv', default=0.01, type=float)
+parser.add_argument('--l_rec', default=0.7, type=float)
 args = parser.parse_args()
 
 np.random.seed(12)
@@ -80,12 +81,17 @@ for e in range(epochs):
         adv_loss = F.binary_cross_entropy(fake_out, label)
 
         I_ = gen_out.detach()
+
+        rec_I = generator(torch.cat([I_, first[1]], 1))
+
+        rec_loss = torch.square(rec_I - first[0]).mean()
+
         GI = generator(torch.cat([first[0], third[1]], 1))
         GI_ = generator(torch.cat([I_, third[1]], 1))
 
         triple_loss = torch.square(GI_ - GI).mean()
 
-        loss = args.l_triple * triple_loss + args.l_adv * adv_loss
+        loss = args.l_triple * triple_loss + args.l_adv * adv_loss + args.l_rec * rec_loss
         losses.append(loss.item())
 
         loss.backward()
