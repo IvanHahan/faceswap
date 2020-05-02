@@ -287,10 +287,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1588273320021" />
-    <state x="314" y="52" key="CommitChangelistDialog2" timestamp="1588353119744">
+    <state x="314" y="52" key="CommitChangelistDialog2" timestamp="1588395723126">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="314" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1588353119744" />
+    <state x="314" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1588395723126" />
     <state width="1440" height="438" key="DebuggerActiveHint" timestamp="1588146767184">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -347,10 +347,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="500" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1588352646819" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1588353121593">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1588395724921">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1588353121593" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1588395724921" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1587924427810">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -370,7 +370,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/fsgan$my.coverage" NAME="my Coverage Results" MODIFIED="1588273249633" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/datasets" />
     <SUITE FILE_PATH="coverage/fsgan$discriminator.coverage" NAME="discriminator Coverage Results" MODIFIED="1587823672972" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/fsgan$train.coverage" NAME="train Coverage Results" MODIFIED="1588351955353" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/fsgan$train.coverage" NAME="train Coverage Results" MODIFIED="1588395754149" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/fsgan$landmarks.coverage" NAME="landmarks Coverage Results" MODIFIED="1588146326421" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/fsgan$unet_model.coverage" NAME="unet_model Coverage Results" MODIFIED="1588351950525" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/unet" />
   </component>

@@ -15,6 +15,7 @@ from matplotlib import pyplot as plt
 import argparse
 import cv2
 from utils.path import make_dir_if_needed
+from ranger import ranger
 
 
 
@@ -42,8 +43,8 @@ discriminator = Discriminator(3, 64).to(device)
 gl_data_sampler = MyDatasetSampler(args.data_dir, device, size=64)
 disc_data_sampler = MyDatasetSampler(args.data_dir, device, length=3, size=64)
 
-gen_optim = torch.optim.Adam(generator.parameters())
-disc_optim = torch.optim.Adam(discriminator.parameters())
+gen_optim = ranger(generator.parameters())
+disc_optim = ranger(discriminator.parameters())
 
 losses = []
 
