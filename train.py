@@ -3,7 +3,7 @@ import random
 import numpy as np
 import torch
 
-from datasets import MyDataset, MyDatasetSampler
+from datasets import YoutubeFaces
 from discriminator import Discriminator
 from unet import UNet
 from utils.path import abs_path
@@ -19,9 +19,10 @@ from ranger import ranger
 from percept_loss import PerceptualLoss
 
 
-
 parser = argparse.ArgumentParser()
-parser.add_argument('--data_dir', default=abs_path('data/my'))
+parser.add_argument('--data_dir', default=os.environ['SM_CHANNEL_TRAIN'])
+parser.add_argument('--model_dir', default=os.environ['SM_MODEL_DIR'])
+
 parser.add_argument('--device', default='cpu')
 parser.add_argument('--verbosity', default=1, type=int)
 parser.add_argument('--size', default=128, type=int)
@@ -46,8 +47,8 @@ make_dir_if_needed('model')
 generator = UNet(71, 3, False).to(device)
 discriminator = Discriminator(3, args.size).to(device)
 
-gl_data_sampler = MyDatasetSampler(args.data_dir, device, size=args.size)
-disc_data_sampler = MyDatasetSampler(args.data_dir, device, length=3, size=args.size)
+gl_data_sampler = YoutubeFaces(args.data_dir, device=device, size=args.size)
+disc_data_sampler = YoutubeFaces(args.data_dir, device=device, len=3, size=args.size)
 
 compute_perceptual = PerceptualLoss().to(device)
 
@@ -111,22 +112,8 @@ for e in range(epochs):
 
     print(losses[-1])
     if e % verbosity == 0:
-        fst = first[0].cpu().numpy()[0].transpose([1, 2, 0]) * 127.5 + 127.5
-        fst = fst.astype('uint8')
-        snd = second[0].cpu().numpy()[0].transpose([1, 2, 0]) * 127.5 + 127.5
-        snd = snd.astype('uint8')
-        out = gen_out.detach().cpu().numpy()[0].transpose([1, 2, 0]) * 127.5 + 127.5
-        out = out.astype('uint8')
-        cv2.imwrite(f'images/{e}fst.png', fst)
-        cv2.imwrite(f'images/{e}snd.png', snd)
-        cv2.imwrite(f'images/{e}out.png', out)
-        torch.save(generator, f'model/generator{e}.pth')
-        plt.imshow(fst)
-        plt.show()
-        plt.imshow(snd)
-        plt.show()
-        plt.imshow(out)
-        plt.show()
+        torch.save(generator, f'{args.model_dir}/generator{e}.pth')
+
 
 
 
