@@ -13,10 +13,10 @@ parser.add_argument('--device', default='cpu')
 
 args = parser.parse_args()
 
-generator = torch.load('model/generator9.pth', map_location='cpu')
+generator = torch.load('model/generator40.pth', map_location='cpu')
 generator.train(False)
 
-gl_data_sampler = MyDatasetSampler(args.data_dir, args.device, size=64)
+gl_data_sampler = MyDatasetSampler(args.data_dir, args.device, size=128)
 
 for first, second, third in tqdm(DataLoader(gl_data_sampler, batch_size=1)):
     gen_in = torch.cat([first[0], second[1]], 1)

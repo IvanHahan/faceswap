@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e781d03-f2c9-4911-8fb7-5950b24d2fcb" name="Default Changelist" comment="">
+    <list default="true" id="8e781d03-f2c9-4911-8fb7-5950b24d2fcb" name="Default Changelist" comment="add perceptual loss">
+      <change afterPath="$PROJECT_DIR$/datasets/youtube_faces.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,6 +33,8 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/data/my/images/225.png" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/model" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -42,6 +46,9 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/model" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/model" />
       <recent name="$PROJECT_DIR$/ranger" />
@@ -50,7 +57,7 @@
       <recent name="$PROJECT_DIR$/unet" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.train">
+  <component name="RunManager" selected="Python.demo">
     <configuration name="demo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="fsgan" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -163,11 +170,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.demo" />
+        <item itemvalue="Python.landmarks" />
         <item itemvalue="Python.train" />
         <item itemvalue="Python.unet_model" />
-        <item itemvalue="Python.landmarks" />
         <item itemvalue="Python.percept_loss" />
-        <item itemvalue="Python.demo" />
       </list>
     </recent_temporary>
   </component>
@@ -187,7 +194,9 @@
       <workItem from="1588089934471" duration="10380000" />
       <workItem from="1588147652005" duration="44000" />
       <workItem from="1588271995473" duration="10863000" />
-      <workItem from="1588395298704" duration="8079000" />
+      <workItem from="1588395298704" duration="13160000" />
+      <workItem from="1589008572695" duration="1801000" />
+      <workItem from="1589721059621" duration="767000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1587830273080</created>
@@ -322,7 +331,21 @@
       <option name="project" value="LOCAL" />
       <updated>1588432745770</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="add perceptual loss">
+      <created>1588433550369</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1588433550369</updated>
+    </task>
+    <task id="LOCAL-00021" summary="add perceptual loss">
+      <created>1588433748796</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1588433748796</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -350,10 +373,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1588432845744" />
-    <state x="314" y="52" key="CommitChangelistDialog2" timestamp="1588433550105">
+    <state x="314" y="52" key="CommitChangelistDialog2" timestamp="1588442783272">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="314" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1588433550105" />
+    <state x="314" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1588442783272" />
     <state width="1440" height="438" key="DebuggerActiveHint" timestamp="1588146767184">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -362,46 +385,46 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="100" y="100" width="1240" height="700" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1588433547003" />
-    <state width="1398" height="237" key="GridCell.Tab.0.bottom" timestamp="1588433528394">
+    <state width="1398" height="285" key="GridCell.Tab.0.bottom" timestamp="1588577154070">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="237" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1588433528394" />
+    <state width="1398" height="285" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1588577154070" />
     <state width="1398" height="286" key="GridCell.Tab.0.bottom/0.23.1440.812@0.23.1440.812" timestamp="1588357590083" />
-    <state width="1398" height="237" key="GridCell.Tab.0.center" timestamp="1588433528393">
+    <state width="1398" height="285" key="GridCell.Tab.0.center" timestamp="1588577154069">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="237" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1588433528393" />
+    <state width="1398" height="285" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1588577154069" />
     <state width="1398" height="286" key="GridCell.Tab.0.center/0.23.1440.812@0.23.1440.812" timestamp="1588357590082" />
-    <state width="1398" height="237" key="GridCell.Tab.0.left" timestamp="1588433528392">
+    <state width="1398" height="285" key="GridCell.Tab.0.left" timestamp="1588577154068">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="237" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1588433528392" />
+    <state width="1398" height="285" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1588577154068" />
     <state width="1398" height="286" key="GridCell.Tab.0.left/0.23.1440.812@0.23.1440.812" timestamp="1588357590081" />
-    <state width="1398" height="237" key="GridCell.Tab.0.right" timestamp="1588433528394">
+    <state width="1398" height="285" key="GridCell.Tab.0.right" timestamp="1588577154069">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="237" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1588433528394" />
+    <state width="1398" height="285" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1588577154069" />
     <state width="1398" height="286" key="GridCell.Tab.0.right/0.23.1440.812@0.23.1440.812" timestamp="1588357590083" />
-    <state width="1398" height="285" key="GridCell.Tab.1.bottom" timestamp="1588433463185">
+    <state width="1398" height="285" key="GridCell.Tab.1.bottom" timestamp="1588577154071">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="285" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1588433463185" />
-    <state width="1398" height="285" key="GridCell.Tab.1.bottom/0.23.1440.812@0.23.1440.812" timestamp="1588430324797" />
-    <state width="1398" height="285" key="GridCell.Tab.1.center" timestamp="1588433463184">
+    <state width="1398" height="285" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1588577154071" />
+    <state width="1398" height="285" key="GridCell.Tab.1.bottom/0.23.1440.812@0.23.1440.812" timestamp="1588441203326" />
+    <state width="1398" height="285" key="GridCell.Tab.1.center" timestamp="1588577154070">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="285" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1588433463184" />
-    <state width="1398" height="285" key="GridCell.Tab.1.center/0.23.1440.812@0.23.1440.812" timestamp="1588430324797" />
-    <state width="1398" height="285" key="GridCell.Tab.1.left" timestamp="1588433463183">
+    <state width="1398" height="285" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1588577154070" />
+    <state width="1398" height="285" key="GridCell.Tab.1.center/0.23.1440.812@0.23.1440.812" timestamp="1588441203325" />
+    <state width="1398" height="285" key="GridCell.Tab.1.left" timestamp="1588577154070">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="285" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1588433463183" />
-    <state width="1398" height="285" key="GridCell.Tab.1.left/0.23.1440.812@0.23.1440.812" timestamp="1588430324796" />
-    <state width="1398" height="285" key="GridCell.Tab.1.right" timestamp="1588433463184">
+    <state width="1398" height="285" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1588577154070" />
+    <state width="1398" height="285" key="GridCell.Tab.1.left/0.23.1440.812@0.23.1440.812" timestamp="1588441203324" />
+    <state width="1398" height="285" key="GridCell.Tab.1.right" timestamp="1588577154071">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="285" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1588433463184" />
-    <state width="1398" height="285" key="GridCell.Tab.1.right/0.23.1440.812@0.23.1440.812" timestamp="1588430324797" />
+    <state width="1398" height="285" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1588577154071" />
+    <state width="1398" height="285" key="GridCell.Tab.1.right/0.23.1440.812@0.23.1440.812" timestamp="1588441203326" />
     <state x="502" y="168" key="RollbackChangesDialog" timestamp="1587830261236">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -410,14 +433,14 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="229" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1588091679854" />
-    <state width="500" height="445" key="SwitcherDM" timestamp="1588433741310">
+    <state width="500" height="445" key="SwitcherDM" timestamp="1589134466737">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="500" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1588433741310" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1588433551811">
+    <state width="500" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1589134466737" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1588433749931">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1588433551811" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1588433749931" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1587924427810">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -433,8 +456,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/demo.py</url>
-          <line>21</line>
-          <option name="timeStamp" value="41" />
+          <line>20</line>
+          <option name="timeStamp" value="43" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -444,8 +467,8 @@
     <SUITE FILE_PATH="coverage/fsgan$discriminator.coverage" NAME="discriminator Coverage Results" MODIFIED="1587823672972" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/fsgan$train.coverage" NAME="train Coverage Results" MODIFIED="1588433528387" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/fsgan$percept_loss.coverage" NAME="percept_loss Coverage Results" MODIFIED="1588431913139" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/fsgan$demo.coverage" NAME="demo Coverage Results" MODIFIED="1588430319108" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/fsgan$landmarks.coverage" NAME="landmarks Coverage Results" MODIFIED="1588432805027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/fsgan$landmarks.coverage" NAME="landmarks Coverage Results" MODIFIED="1588442804155" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/fsgan$demo.coverage" NAME="demo Coverage Results" MODIFIED="1588491158458" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/fsgan$unet_model.coverage" NAME="unet_model Coverage Results" MODIFIED="1588433412094" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/unet" />
   </component>
 </project>
