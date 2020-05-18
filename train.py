@@ -17,6 +17,7 @@ import cv2
 from utils.path import make_dir_if_needed
 from ranger import ranger
 from percept_loss import PerceptualLoss
+import os
 
 
 parser = argparse.ArgumentParser()
@@ -41,78 +42,80 @@ steps_discriminator = 3
 device = args.device
 verbosity = args.verbosity
 
-make_dir_if_needed('images')
-make_dir_if_needed('model')
+if __name__ == '__main__':
 
-generator = UNet(71, 3, False).to(device)
-discriminator = Discriminator(3, args.size).to(device)
+    make_dir_if_needed('images')
+    make_dir_if_needed('model')
 
-gl_data_sampler = YoutubeFaces(args.data_dir, device=device, size=args.size)
-disc_data_sampler = YoutubeFaces(args.data_dir, device=device, len=3, size=args.size)
+    generator = UNet(71, 3, False).to(device)
+    discriminator = Discriminator(3, args.size).to(device)
 
-compute_perceptual = PerceptualLoss().to(device)
+    gl_data_sampler = YoutubeFaces(args.data_dir, device=device, size=args.size)
+    disc_data_sampler = YoutubeFaces(args.data_dir, device=device, len=3, size=args.size)
 
-gen_optim = ranger(generator.parameters())
-disc_optim = ranger(discriminator.parameters())
+    compute_perceptual = PerceptualLoss().to(device)
 
-losses = []
+    gen_optim = ranger(generator.parameters())
+    disc_optim = ranger(discriminator.parameters())
 
-for e in range(epochs):
-    print('EPOCH {}'.format(e))
-    for first, second, third in tqdm(DataLoader(gl_data_sampler, batch_size=1)):
+    losses = []
 
-        discriminator.train(True)
-        generator.train(True)
+    for e in range(epochs):
+        print('EPOCH {}'.format(e))
+        for first, second, third in tqdm(DataLoader(gl_data_sampler, batch_size=1)):
 
-        for d_first, d_second, _ in DataLoader(disc_data_sampler, batch_size=1):
+            discriminator.train(True)
+            generator.train(True)
 
-            disc_optim.zero_grad()
-            gen_in = torch.cat([d_first[0], d_second[1]], 1)
+            for d_first, d_second, _ in DataLoader(disc_data_sampler, batch_size=1):
 
-            gen_out = generator(gen_in)
-            true_out = discriminator(d_first[0]).view((-1))
-            fake_out = discriminator(gen_out.detach()).view((-1))
-            pred = torch.cat((fake_out, true_out), 0)
-            label = torch.Tensor([0, 1]).to(device)
-            bce_loss = F.binary_cross_entropy(pred, label)
-            bce_loss.backward()
-            disc_optim.step()
+                disc_optim.zero_grad()
+                gen_in = torch.cat([d_first[0], d_second[1]], 1)
 
-        gen_optim.zero_grad()
+                gen_out = generator(gen_in)
+                true_out = discriminator(d_first[0]).view((-1))
+                fake_out = discriminator(gen_out.detach()).view((-1))
+                pred = torch.cat((fake_out, true_out), 0)
+                label = torch.Tensor([0, 1]).to(device)
+                bce_loss = F.binary_cross_entropy(pred, label)
+                bce_loss.backward()
+                disc_optim.step()
 
-        gen_out = generator(torch.cat([first[0], second[1]], 1))
+            gen_optim.zero_grad()
 
-        pix_loss = torch.square(gen_out - second[0]).mean()
+            gen_out = generator(torch.cat([first[0], second[1]], 1))
 
-        percept_loss = compute_perceptual(gen_out, second[0])
+            pix_loss = torch.square(gen_out - second[0]).mean()
 
-        fake_out = discriminator(gen_out).view((-1))
+            percept_loss = compute_perceptual(gen_out, second[0])
 
-        label = torch.Tensor([1]).to(device)
+            fake_out = discriminator(gen_out).view((-1))
 
-        adv_loss = F.binary_cross_entropy(fake_out, label)
+            label = torch.Tensor([1]).to(device)
 
-        I_ = gen_out.detach()
+            adv_loss = F.binary_cross_entropy(fake_out, label)
 
-        rec_I = generator(torch.cat([I_, first[1]], 1))
+            I_ = gen_out.detach()
 
-        rec_loss = torch.square(rec_I - first[0]).mean()
+            rec_I = generator(torch.cat([I_, first[1]], 1))
 
-        GI = generator(torch.cat([first[0], third[1]], 1))
-        GI_ = generator(torch.cat([I_, third[1]], 1))
+            rec_loss = torch.square(rec_I - first[0]).mean()
 
-        triple_loss = torch.square(GI_ - GI).mean()
+            GI = generator(torch.cat([first[0], third[1]], 1))
+            GI_ = generator(torch.cat([I_, third[1]], 1))
 
-        loss = args.l_triple * triple_loss + args.l_adv * adv_loss + \
-               args.l_rec * rec_loss + args.l_pix * pix_loss + args.l_percept * percept_loss
-        losses.append(loss.item())
+            triple_loss = torch.square(GI_ - GI).mean()
 
-        loss.backward()
-        gen_optim.step()
+            loss = args.l_triple * triple_loss + args.l_adv * adv_loss + \
+                   args.l_rec * rec_loss + args.l_pix * pix_loss + args.l_percept * percept_loss
+            losses.append(loss.item())
 
-    print(losses[-1])
-    if e % verbosity == 0:
-        torch.save(generator, f'{args.model_dir}/generator{e}.pth')
+            loss.backward()
+            gen_optim.step()
+
+        print(losses[-1])
+        if e % verbosity == 0:
+            torch.save(generator, f'{args.model_dir}/generator{e}.pth')
 
 
 
