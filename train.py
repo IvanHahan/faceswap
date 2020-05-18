@@ -32,12 +32,13 @@ parser.add_argument('--l_adv', default=1, type=float)
 parser.add_argument('--l_rec', default=100, type=float)
 parser.add_argument('--l_pix', default=10, type=float)
 parser.add_argument('--l_percept', default=10, type=float)
+parser.add_argument('--epochs', default=20, type=float)
 args = parser.parse_args()
 
 np.random.seed(12)
 random.seed(12)
 torch.manual_seed(12)
-epochs = 100
+epochs = args.epochs
 steps_discriminator = 3
 device = args.device
 verbosity = args.verbosity
