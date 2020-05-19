@@ -11,9 +11,13 @@ class Vgg19(torch.nn.Module):
         requires_grad (bool): Enables or disables the "requires_grad" flag for all model parameters
     """
 
-    def __init__(self, requires_grad: bool = False):
+    def __init__(self, requires_grad: bool = False, vgg19_weights=None):
         super(Vgg19, self).__init__()
-        vgg_pretrained_features = models.vgg19(pretrained=True).features
+        if vgg19_weights is not None:
+            vgg_pretrained_features = models.vgg19(pretrained=True).features
+        else:
+            model = models.vgg19(pretrained=False).features
+            model.load(vgg19_weights)
         self.slice1 = torch.nn.Sequential()
         self.slice2 = torch.nn.Sequential()
         self.slice3 = torch.nn.Sequential()
@@ -49,9 +53,9 @@ class PerceptualLoss(torch.nn.Module):
     Args:
         model_path (str): Path to model weights file (.pth)
     """
-    def __init__(self):
+    def __init__(self, vgg19_weights):
         super(PerceptualLoss, self).__init__()
-        self.vgg = Vgg19()
+        self.vgg = Vgg19(vgg19_weights=vgg19_weights)
         self.criterion = nn.L1Loss()
         self.weights = [1.0/32, 1.0/16, 1.0/8, 1.0/4, 1.0]
 

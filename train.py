@@ -22,6 +22,7 @@ import os
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--data_dir', default=os.environ['SM_CHANNEL_TRAIN'])
+parser.add_argument('--vgg19_weights', default=os.environ['SM_CHANNEL_VGG19'])
 parser.add_argument('--model_dir', default=os.environ['SM_MODEL_DIR'])
 
 parser.add_argument('--device', default='cpu')
@@ -54,7 +55,7 @@ if __name__ == '__main__':
     gl_data_sampler = YoutubeFaces(args.data_dir, device=device, size=args.size)
     disc_data_sampler = YoutubeFaces(args.data_dir, device=device, len=3, size=args.size)
 
-    compute_perceptual = PerceptualLoss().to(device)
+    compute_perceptual = PerceptualLoss(args.vgg19_weights).to(device)
 
     gen_optim = ranger(generator.parameters())
     disc_optim = ranger(discriminator.parameters())

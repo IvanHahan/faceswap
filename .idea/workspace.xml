@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8e781d03-f2c9-4911-8fb7-5950b24d2fcb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/percept_loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/percept_loss.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +56,7 @@
       <recent name="$PROJECT_DIR$/unet" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.demo">
+  <component name="RunManager" selected="Python.percept_loss">
     <configuration name="demo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="fsgan" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -168,11 +169,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.percept_loss" />
         <item itemvalue="Python.demo" />
         <item itemvalue="Python.landmarks" />
         <item itemvalue="Python.train" />
         <item itemvalue="Python.unet_model" />
-        <item itemvalue="Python.percept_loss" />
       </list>
     </recent_temporary>
   </component>
@@ -196,6 +197,7 @@
       <workItem from="1589008572695" duration="1801000" />
       <workItem from="1589721059621" duration="3083000" />
       <workItem from="1589816466116" duration="2129000" />
+      <workItem from="1589911031920" duration="669000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1587830273080</created>
@@ -372,7 +374,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589819043722</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="update requirements.txt">
+      <created>1589911072321</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1589911072322</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -392,7 +401,8 @@
     <MESSAGE value="add youtube_faces.py dataser" />
     <MESSAGE value="update train script" />
     <MESSAGE value="add missing imports" />
-    <option name="LAST_COMMIT_MESSAGE" value="add missing imports" />
+    <MESSAGE value="update requirements.txt" />
+    <option name="LAST_COMMIT_MESSAGE" value="update requirements.txt" />
   </component>
   <component name="WindowStateProjectService">
     <state x="429" y="260" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588430311218">
@@ -403,10 +413,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1588432845744" />
-    <state x="314" y="52" key="CommitChangelistDialog2" timestamp="1589819043201">
+    <state x="314" y="52" key="CommitChangelistDialog2" timestamp="1589911071727">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="314" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1589819043201" />
+    <state x="314" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1589911071727" />
     <state width="1440" height="438" key="DebuggerActiveHint" timestamp="1588146767184">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -463,10 +473,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="229" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1588091679854" />
-    <state width="500" height="445" key="SwitcherDM" timestamp="1589134466737">
+    <state width="500" height="445" key="SwitcherDM" timestamp="1589911772216">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="500" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1589134466737" />
+    <state width="500" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1589911772216" />
     <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1589819045310">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -496,7 +506,7 @@
     <SUITE FILE_PATH="coverage/fsgan$my.coverage" NAME="my Coverage Results" MODIFIED="1588273249633" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/datasets" />
     <SUITE FILE_PATH="coverage/fsgan$discriminator.coverage" NAME="discriminator Coverage Results" MODIFIED="1587823672972" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/fsgan$train.coverage" NAME="train Coverage Results" MODIFIED="1588433528387" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/fsgan$percept_loss.coverage" NAME="percept_loss Coverage Results" MODIFIED="1588431913139" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/fsgan$percept_loss.coverage" NAME="percept_loss Coverage Results" MODIFIED="1589911139977" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/fsgan$landmarks.coverage" NAME="landmarks Coverage Results" MODIFIED="1588442804155" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/fsgan$demo.coverage" NAME="demo Coverage Results" MODIFIED="1588491158458" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/fsgan$unet_model.coverage" NAME="unet_model Coverage Results" MODIFIED="1588433412094" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/unet" />
