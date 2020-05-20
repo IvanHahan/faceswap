@@ -31,7 +31,7 @@ class YoutubeFaces(Dataset):
 
     def get_sample(self, index, dir):
 
-        frame_name = os.listdir(dir)[index]
+        frame_name = os.listdir(os.path.join(dir, 'frames'))[index]
         image = cv2.imread(os.path.join(dir, 'frames/{}'.format(frame_name))).astype('float32')
         landmarks = np.load(os.path.join(dir, 'landmarks/{}.npy'.format(frame_name)))
         max_landmark_x = np.max(landmarks[:, 0]) + 1
