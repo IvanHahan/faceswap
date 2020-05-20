@@ -117,7 +117,7 @@ if __name__ == '__main__':
 
         print(losses[-1])
         if e % verbosity == 0:
-            torch.save(generator, f'{args.model_dir}/generator{e}.pth')
+            torch.save(generator.cpu().state_dict(), os.path.join(args.model_dir, f'generator{e}.pth'))
 
 
 
