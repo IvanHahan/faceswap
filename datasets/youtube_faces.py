@@ -8,7 +8,7 @@ from torch.utils.data import Dataset
 from utils.image_processing import resize_image, pad_image
 from utils.path import abs_path
 import matplotlib.pyplot as plt
-import numpy as np
+import os
 
 
 class YoutubeFaces(Dataset):
@@ -31,8 +31,9 @@ class YoutubeFaces(Dataset):
 
     def get_sample(self, index, dir):
 
-        image = cv2.imread(os.path.join(dir, 'frames/{}.png'.format(index))).astype('float32')
-        landmarks = np.load(os.path.join(dir, 'landmarks/{}.npy'.format(index)))
+        frame_name = os.listdir(dir)[index]
+        image = cv2.imread(os.path.join(dir, 'frames/{}'.format(frame_name))).astype('float32')
+        landmarks = np.load(os.path.join(dir, 'landmarks/{}.npy'.format(frame_name)))
         max_landmark_x = np.max(landmarks[:, 0]) + 1
         max_landmark_y = np.max(landmarks[:, 1]) + 1
         image = pad_image(image, (max_landmark_x, max_landmark_y))[0]
@@ -52,9 +53,9 @@ class YoutubeFaces(Dataset):
         return image, landmarks
 
     def sample_triplet(self, dir):
-        first = self.get_sample(np.random.randint(0, len(self)), dir)
-        second = self.get_sample(np.random.randint(0, len(self)), dir)
-        third = self.get_sample(np.random.randint(0, len(self)), dir)
+        first = self.get_sample(np.random.randint(0, len(os.listdir(dir))), dir)
+        second = self.get_sample(np.random.randint(0, len(os.listdir(dir))), dir)
+        third = self.get_sample(np.random.randint(0, len(os.listdir(dir))), dir)
         first = [torch.from_numpy(x).to(self.device) for x in first]
         second = [torch.from_numpy(x).to(self.device) for x in second]
         third = [torch.from_numpy(x).to(self.device) for x in third]
