@@ -18,3 +18,7 @@ def pad_image(image, size=(256, 256)):
     value = ((0, dy), (0, dx), (0, 0)) if image.ndim == 3 else ((0, dy), (0, dx))
 
     return np.lib.pad(image, value, 'constant', constant_values=0), (dx, dy)
+
+
+def normalize_image(image):
+    return (image - 127.5) / 127.5

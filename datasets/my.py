@@ -5,10 +5,11 @@ import numpy as np
 import torch
 from torch.utils.data import Dataset
 
-from utils.image_processing import resize_image, pad_image
+from utils.image_processing import resize_image, pad_image, normalize_image
 from utils.path import abs_path
 import matplotlib.pyplot as plt
-import numpy as np
+from utils.landmarks import landmarks2heatmaps
+from utils.landmarks import resize_heatmaps, pad_heatmaps
 
 
 class MyDataset(Dataset):
@@ -28,16 +29,11 @@ class MyDataset(Dataset):
         max_landmark_x = np.max(landmarks[:, 0]) + 1
         max_landmark_y = np.max(landmarks[:, 1]) + 1
         image = pad_image(image, (max_landmark_x, max_landmark_y))[0]
-        heatmaps = []
-        for l in landmarks:
-            canvas = np.zeros(image.shape[:2], dtype='float32')
-            cv2.circle(canvas, (l[0], l[1]), 5, 1, -1)
-            heatmaps.append(canvas)
-        landmarks = np.array(heatmaps)
+        landmarks = landmarks2heatmaps(landmarks, image.shape[:2])
 
         image, landmarks = self._resize_sample(image, landmarks)
         image, landmarks = self._pad_sample(image, landmarks)
-        image = (image - 127.5) / 127.5
+        image = normalize_image(image)
 
         image = np.transpose(image, [2, 0, 1])
 
@@ -45,21 +41,13 @@ class MyDataset(Dataset):
 
     def _resize_sample(self, image, landmarks):
         image = resize_image(image, self.size)
-        resized_landmarks = []
-        for l in landmarks:
-            l = resize_image(l, self.size)
-            resized_landmarks.append(l)
-        landmarks = np.array(resized_landmarks)
-        return image, landmarks
+        heatmaps = resize_heatmaps(landmarks, self.size)
+        return image, heatmaps
 
     def _pad_sample(self, image, landmarks):
         image = pad_image(image, (self.size, self.size))[0]
-        padded_landmarks = []
-        for l in landmarks:
-            l = pad_image(l, (self.size, self.size))[0]
-            padded_landmarks.append(l)
-        landmarks = np.array(padded_landmarks)
-        return image, landmarks
+        heatmaps = pad_heatmaps(landmarks, (self.size, self.size))
+        return image, heatmaps
 
     def __len__(self):
         return len(os.listdir(self.image_dir))
