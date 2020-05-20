@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8e781d03-f2c9-4911-8fb7-5950b24d2fcb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datasets/youtube_faces.py" beforeDir="false" afterPath="$PROJECT_DIR$/datasets/youtube_faces.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +196,7 @@
       <workItem from="1589008572695" duration="1801000" />
       <workItem from="1589721059621" duration="3083000" />
       <workItem from="1589816466116" duration="2129000" />
-      <workItem from="1589911031920" duration="1564000" />
+      <workItem from="1589911031920" duration="1904000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1587830273080</created>
@@ -387,7 +387,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589911877566</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="change epochs type">
+      <created>1589915911932</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1589915911932</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -409,7 +416,8 @@
     <MESSAGE value="add missing imports" />
     <MESSAGE value="update requirements.txt" />
     <MESSAGE value="add path to vgg 19" />
-    <option name="LAST_COMMIT_MESSAGE" value="add path to vgg 19" />
+    <MESSAGE value="change epochs type" />
+    <option name="LAST_COMMIT_MESSAGE" value="change epochs type" />
   </component>
   <component name="WindowStateProjectService">
     <state x="429" y="260" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588430311218">
@@ -420,10 +428,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1588432845744" />
-    <state x="314" y="52" key="CommitChangelistDialog2" timestamp="1589911877070">
+    <state x="314" y="52" key="CommitChangelistDialog2" timestamp="1589915911432">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="314" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1589911877070" />
+    <state x="314" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1589915911432" />
     <state width="1440" height="438" key="DebuggerActiveHint" timestamp="1588146767184">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -484,10 +492,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="500" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1589911772216" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1589911879242">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1589915913455">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1589911879242" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1589915913455" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1587924427810">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

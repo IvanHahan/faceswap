@@ -18,6 +18,7 @@ class YoutubeFaces(Dataset):
         self.names = os.listdir(dir)
         self.dir = dir
         self.device = device
+        self.len = None
         if len is not None:
             self.len = len
         np.random.shuffle(self.names)
