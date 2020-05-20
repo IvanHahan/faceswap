@@ -34,3 +34,8 @@ def pad_heatmaps(heatmaps, size):
 def heatmaps2image(heatmaps):
     heatmap = np.bitwise_or.reduce(heatmaps > 0, axis=0)
     return heatmap
+
+
+def landmarks2image(landmarks, shape):
+    heatmaps = landmarks2heatmaps(landmarks, shape)
+    return heatmaps2image(heatmaps)

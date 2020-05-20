@@ -1,11 +1,9 @@
 """ Full assembly of the parts to form the complete network """
 
-import torch.nn.functional as F
-
-from unet.unet_parts import *
 import numpy as np
 import torch
-
+from torch import nn
+from .unet_parts import *
 
 class UNet(nn.Module):
     def __init__(self, n_channels, n_classes, bilinear=True):

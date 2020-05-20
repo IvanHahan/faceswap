@@ -5,15 +5,11 @@ import torch
 
 from datasets import YoutubeFaces
 from discriminator import Discriminator
-from unet import UNet
-from utils.path import abs_path
+from generator.unet import UNet
 from torch.utils.data import DataLoader
-from torch import nn
 from torch.nn import functional as F
 from tqdm import tqdm
-from matplotlib import pyplot as plt
 import argparse
-import cv2
 from utils.path import make_dir_if_needed
 from ranger import ranger
 from percept_loss import PerceptualLoss

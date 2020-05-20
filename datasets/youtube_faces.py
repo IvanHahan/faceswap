@@ -35,22 +35,6 @@ class YoutubeFaces(Dataset):
 
         image = cv2.imread(os.path.join(dir, 'frames/{}'.format(frame_name))).astype('float32')
         landmarks = np.load(os.path.join(dir, 'landmarks/{}.npy'.format(frame_name)))
-        max_landmark_x = np.max(landmarks[:, 0]) + 1
-        max_landmark_y = np.max(landmarks[:, 1]) + 1
-        image = pad_image(image, (max_landmark_x, max_landmark_y))[0]
-        heatmaps = []
-        for l in landmarks:
-            canvas = np.zeros(image.shape[:2], dtype='float32')
-            cv2.circle(canvas, (l[0], l[1]), 5, 1, -1)
-            heatmaps.append(canvas)
-        landmarks = np.array(heatmaps)
-
-        image, landmarks = self._resize_sample(image, landmarks)
-        image, landmarks = self._pad_sample(image, landmarks)
-        image = (image - 127.5) / 127.5
-
-        image = np.transpose(image, [2, 0, 1])
-
         return image, landmarks
 
     def sample_triplet(self, dir):

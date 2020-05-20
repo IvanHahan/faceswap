@@ -26,17 +26,6 @@ class MyDataset(Dataset):
     def __getitem__(self, item):
         image = cv2.imread(os.path.join(self.image_dir, '{}.png'.format(item))).astype('float32')
         landmarks = np.load(os.path.join(self.landmarks_dir, '{}.npy'.format(item)))
-        max_landmark_x = np.max(landmarks[:, 0]) + 1
-        max_landmark_y = np.max(landmarks[:, 1]) + 1
-        image = pad_image(image, (max_landmark_x, max_landmark_y))[0]
-        landmarks = landmarks2heatmaps(landmarks, image.shape[:2])
-
-        image, landmarks = self._resize_sample(image, landmarks)
-        image, landmarks = self._pad_sample(image, landmarks)
-        image = normalize_image(image)
-
-        image = np.transpose(image, [2, 0, 1])
-
         return image, landmarks
 
     def _resize_sample(self, image, landmarks):
