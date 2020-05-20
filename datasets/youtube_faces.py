@@ -10,6 +10,7 @@ from utils.path import abs_path
 import matplotlib.pyplot as plt
 import os
 
+from generator.utils import process_image, process_landmarks
 
 class YoutubeFaces(Dataset):
 
@@ -35,6 +36,8 @@ class YoutubeFaces(Dataset):
 
         image = cv2.imread(os.path.join(dir, 'frames/{}'.format(frame_name))).astype('float32')
         landmarks = np.load(os.path.join(dir, 'landmarks/{}.npy'.format(frame_name)))
+        landmarks = process_landmarks(landmarks, image.shape, (self.size, self.size))
+        image = process_image(image, (self.size, self.size))
         return image, landmarks
 
     def sample_triplet(self, dir):

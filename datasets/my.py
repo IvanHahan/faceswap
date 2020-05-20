@@ -10,6 +10,7 @@ from utils.path import abs_path
 import matplotlib.pyplot as plt
 from utils.landmarks import landmarks2heatmaps
 from utils.landmarks import resize_heatmaps, pad_heatmaps
+from generator.utils import process_landmarks, process_image
 
 
 class MyDataset(Dataset):
@@ -26,6 +27,8 @@ class MyDataset(Dataset):
     def __getitem__(self, item):
         image = cv2.imread(os.path.join(self.image_dir, '{}.png'.format(item))).astype('float32')
         landmarks = np.load(os.path.join(self.landmarks_dir, '{}.npy'.format(item)))
+        landmarks = process_landmarks(landmarks, image.shape, (self.size, self.size))
+        image = process_image(image, (self.size, self.size))
         return image, landmarks
 
     def _resize_sample(self, image, landmarks):

@@ -12,7 +12,6 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--image_path', default=abs_path('data/my/images/0.png'))
 parser.add_argument('--landmarks_path', default=abs_path('data/my/landmarks/20.npy'))
 parser.add_argument('--device', default='cpu')
-parser.add_argument('--from_dict', action='store_false')
 
 args = parser.parse_args()
 
@@ -25,12 +24,8 @@ plt.show()
 plt.imshow(hm)
 plt.show()
 
-
-if args.from_dict:
-    generator = UNet(71, 3, False).to('cpu')
-    generator.load_state_dict(torch.load('model/generator19.pth', map_location='cpu'))
-else:
-    generator = torch.load('model/generator40.pth', map_location='cpu')
+generator = UNet(71, 3, False).to('cpu')
+generator.load_state_dict(torch.load('model/generator19.pth', map_location='cpu'))
 generator.train(False)
 
 gen_in = prepare_input(image, landmarks)

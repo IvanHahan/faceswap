@@ -2,18 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e781d03-f2c9-4911-8fb7-5950b24d2fcb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/generator/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/generator/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datasets/my.py" beforeDir="false" afterPath="$PROJECT_DIR$/datasets/my.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datasets/youtube_faces.py" beforeDir="false" afterPath="$PROJECT_DIR$/datasets/youtube_faces.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unet/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/generator/unet/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unet/bottleneck.py" beforeDir="false" afterPath="$PROJECT_DIR$/generator/unet/bottleneck.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unet/unet_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/generator/unet/unet_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unet/unet_parts.py" beforeDir="false" afterPath="$PROJECT_DIR$/generator/unet/unet_parts.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/landmarks.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/landmarks.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +200,9 @@
       <workItem from="1589721059621" duration="3083000" />
       <workItem from="1589816466116" duration="2129000" />
       <workItem from="1589911031920" duration="3953000" />
-      <workItem from="1589998364763" duration="4482000" />
+      <workItem from="1589998364763" duration="4645000" />
+      <workItem from="1590004301838" duration="59000" />
+      <workItem from="1590004417955" duration="649000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1587830273080</created>
@@ -440,7 +435,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590000770223</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="fix demo">
+      <created>1590003465175</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1590003465175</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -467,7 +469,8 @@
     <MESSAGE value="fix yotube faces sample extraction" />
     <MESSAGE value="update generator saving path" />
     <MESSAGE value="update demo script" />
-    <option name="LAST_COMMIT_MESSAGE" value="update demo script" />
+    <MESSAGE value="fix demo" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix demo" />
   </component>
   <component name="WindowStateProjectService">
     <state x="429" y="260" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588430311218">
@@ -478,10 +481,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1588432845744" />
-    <state x="314" y="52" key="CommitChangelistDialog2" timestamp="1590000769614">
+    <state x="314" y="52" key="CommitChangelistDialog2" timestamp="1590005234019">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="314" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1590000769614" />
+    <state x="314" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1590005234019" />
     <state width="1440" height="438" key="DebuggerActiveHint" timestamp="1588146767184">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -538,14 +541,14 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="229" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1588091679854" />
-    <state width="500" height="445" key="SwitcherDM" timestamp="1590003307784">
+    <state width="500" height="445" key="SwitcherDM" timestamp="1590004583265">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="500" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1590003307784" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1590000771917">
+    <state width="500" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1590004583265" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1590003466953">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1590000771917" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1590003466953" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1587924427810">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -556,13 +559,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/datasets/my.py</url>
-          <line>75</line>
+          <line>78</line>
           <option name="timeStamp" value="40" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/demo.py</url>
-          <line>32</line>
-          <option name="timeStamp" value="50" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
