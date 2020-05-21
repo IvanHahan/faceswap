@@ -13,7 +13,7 @@ class Vgg19(torch.nn.Module):
 
     def __init__(self, requires_grad: bool = False, vgg19_weights=None):
         super(Vgg19, self).__init__()
-        if vgg19_weights is not None:
+        if vgg19_weights is None:
             vgg_pretrained_features = models.vgg19(pretrained=True).features
         else:
             model = models.vgg19(pretrained=False).features
