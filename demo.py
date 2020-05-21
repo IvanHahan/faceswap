@@ -4,7 +4,7 @@ import argparse
 from utils.path import abs_path
 from matplotlib import pyplot as plt
 from generator import UNet
-from generator.utils import prepare_input
+from generator.utils import prepare_input, postprocess
 import numpy as np
 from utils import image_processing, landmarks as landmarks_processing
 
@@ -32,8 +32,7 @@ gen_in = prepare_input(image, landmarks)
 
 gen_out = generator(gen_in)
 
-out = gen_out.detach().cpu().numpy()[0].transpose([1, 2, 0]) * 127.5 + 127.5
-out = cv2.cvtColor(out.astype('uint8'), cv2.COLOR_BGR2RGB)
+out = postprocess(gen_out)
 
 plt.imshow(out)
 plt.show()
