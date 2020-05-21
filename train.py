@@ -77,9 +77,6 @@ if __name__ == '__main__':
             generator.train(True)
 
             for d_first, d_second, _ in DataLoader(disc_data_sampler, batch_size=1):
-                x = gen_util.postprocess(d_first[0])
-                plt.imshow(x)
-                plt.show()
 
                 disc_optim.zero_grad()
                 gen_in = torch.cat([d_first[0], d_second[1]], 1)
