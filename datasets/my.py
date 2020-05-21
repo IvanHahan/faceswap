@@ -53,9 +53,9 @@ class MyDatasetSampler(MyDataset):
         self.device = device
 
     def __getitem__(self, _):
-        first = super().__getitem__(np.random.randint(0, len(self)))
-        second = super().__getitem__(np.random.randint(0, len(self)))
-        third = super().__getitem__(np.random.randint(0, len(self)))
+        first = super().__getitem__(np.random.randint(0, super().__len__()))
+        second = super().__getitem__(np.random.randint(0, super().__len__()))
+        third = super().__getitem__(np.random.randint(0, super().__len__()))
         first = [torch.from_numpy(x).to(self.device) for x in first]
         second = [torch.from_numpy(x).to(self.device) for x in second]
         third = [torch.from_numpy(x).to(self.device) for x in third]

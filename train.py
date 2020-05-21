@@ -13,6 +13,7 @@ import argparse
 from utils.path import make_dir_if_needed
 from ranger import ranger
 from percept_loss import PerceptualLoss
+import matplotlib.pyplot as plt
 import os
 import cv2
 
@@ -76,6 +77,9 @@ if __name__ == '__main__':
             generator.train(True)
 
             for d_first, d_second, _ in DataLoader(disc_data_sampler, batch_size=1):
+                x = gen_util.postprocess(d_first[0])
+                plt.imshow(x)
+                plt.show()
 
                 disc_optim.zero_grad()
                 gen_in = torch.cat([d_first[0], d_second[1]], 1)
@@ -125,7 +129,7 @@ if __name__ == '__main__':
         if e % verbosity == 0:
             torch.save(generator.cpu().state_dict(), os.path.join(args.model_dir, f'generator{e}.pth'))
             generator.to(device)
-            in_ = gen_util.postprocess(d_first[0])
+            in_ = gen_util.postprocess(first[0])
             out = gen_util.postprocess(gen_out)
             cv2.imwrite(os.path.join(args.data_output, f'{e}_in.png'), in_)
             cv2.imwrite(os.path.join(args.data_output, f'{e}_out.png'), out)
