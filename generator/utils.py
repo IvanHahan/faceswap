@@ -35,3 +35,9 @@ def prepare_input(image, landmarks):
     heatmaps = torch.from_numpy(heatmaps).float()
 
     return torch.cat([image, heatmaps], 1)
+
+
+def postprocess(output):
+    out = output.detach().cpu().numpy()[0].transpose([1, 2, 0]) * 127.5 + 127.5
+    out = cv2.cvtColor(out.astype('uint8'), cv2.COLOR_BGR2RGB)
+    return out

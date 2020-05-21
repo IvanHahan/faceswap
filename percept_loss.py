@@ -53,7 +53,7 @@ class PerceptualLoss(torch.nn.Module):
     Args:
         model_path (str): Path to model weights file (.pth)
     """
-    def __init__(self, vgg19_weights):
+    def __init__(self, vgg19_weights=None):
         super(PerceptualLoss, self).__init__()
         self.vgg = Vgg19(vgg19_weights=vgg19_weights)
         self.criterion = nn.L1Loss()

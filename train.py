@@ -3,9 +3,9 @@ import random
 import numpy as np
 import torch
 
-from datasets import YoutubeFaces
+from datasets import YoutubeFaces, MyDatasetSampler
 from discriminator import Discriminator
-from generator.unet import UNet
+from generator import UNet, utils as gen_util
 from torch.utils.data import DataLoader
 from torch.nn import functional as F
 from tqdm import tqdm
@@ -14,13 +14,19 @@ from utils.path import make_dir_if_needed
 from ranger import ranger
 from percept_loss import PerceptualLoss
 import os
+import cv2
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--data_dir', default=os.environ['SM_CHANNEL_TRAIN'])
-parser.add_argument('--vgg19_weights', default=os.environ['SM_CHANNEL_VGG19'])
-parser.add_argument('--model_dir', default=os.environ['SM_MODEL_DIR'])
+# parser.add_argument('--data_dir', default=os.environ['SM_CHANNEL_TRAIN'])
+# parser.add_argument('--model_dir', default=os.environ['SM_MODEL_DIR'])
+# parser.add_argument('--data_output', default=os.environ['SM_OUTPUT_DATA_DIR'])
 
+parser.add_argument('--data_dir', default='data/my')
+parser.add_argument('--model_dir', default='model')
+parser.add_argument('--data_output', default='data/output')
+
+parser.add_argument('--dataset', default='my', choices=['youtube', 'my'])
 parser.add_argument('--device', default='cpu')
 parser.add_argument('--verbosity', default=1, type=int)
 parser.add_argument('--size', default=128, type=int)
@@ -42,16 +48,20 @@ verbosity = args.verbosity
 
 if __name__ == '__main__':
 
-    make_dir_if_needed('images')
-    make_dir_if_needed('model')
+    make_dir_if_needed(args.model_dir)
+    make_dir_if_needed(args.data_output)
 
     generator = UNet(71, 3, False).to(device)
     discriminator = Discriminator(3, args.size).to(device)
 
-    gl_data_sampler = YoutubeFaces(args.data_dir, device=device, size=args.size)
-    disc_data_sampler = YoutubeFaces(args.data_dir, device=device, len=3, size=args.size)
+    if args.dataset == 'youtube':
+        gl_data_sampler = YoutubeFaces(args.data_dir, device=device, size=args.size)
+        disc_data_sampler = YoutubeFaces(args.data_dir, device=device, len=3, size=args.size)
+    elif args.dataset == 'my':
+        gl_data_sampler = MyDatasetSampler(args.data_dir, device=device, size=args.size)
+        disc_data_sampler = MyDatasetSampler(args.data_dir, device=device, length=3, size=args.size)
 
-    compute_perceptual = PerceptualLoss(args.vgg19_weights).to(device)
+    compute_perceptual = PerceptualLoss().to(device)
 
     gen_optim = ranger(generator.parameters())
     disc_optim = ranger(discriminator.parameters())
@@ -114,6 +124,11 @@ if __name__ == '__main__':
         print(losses[-1])
         if e % verbosity == 0:
             torch.save(generator.cpu().state_dict(), os.path.join(args.model_dir, f'generator{e}.pth'))
+            in_ = gen_util.postprocess(d_first[0])
+            out = gen_util.postprocess(gen_out)
+            cv2.imwrite(os.path.join(args.data_output, f'{e}_in.png'), in_)
+            cv2.imwrite(os.path.join(args.data_output, f'{e}_out.png'), out)
+
 
 
 
