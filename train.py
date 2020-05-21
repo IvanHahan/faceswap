@@ -124,6 +124,7 @@ if __name__ == '__main__':
         print(losses[-1])
         if e % verbosity == 0:
             torch.save(generator.cpu().state_dict(), os.path.join(args.model_dir, f'generator{e}.pth'))
+            generator.to(device)
             in_ = gen_util.postprocess(d_first[0])
             out = gen_util.postprocess(gen_out)
             cv2.imwrite(os.path.join(args.data_output, f'{e}_in.png'), in_)
