@@ -65,8 +65,8 @@ if __name__ == '__main__':
 
     compute_perceptual = PerceptualLoss().to(device)
 
-    gen_optim = Adam(generator.parameters())
-    disc_optim = Adam(discriminator.parameters())
+    gen_optim = ranger(generator.parameters())
+    disc_optim = ranger(discriminator.parameters())
 
     losses = []
 
