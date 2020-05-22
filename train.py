@@ -73,8 +73,8 @@ if __name__ == '__main__':
         print('EPOCH {}'.format(e))
         for first, second, third in tqdm(DataLoader(gl_data_sampler, batch_size=1)):
 
+            generator.train(False)
             discriminator.train(True)
-            generator.train(True)
 
             for d_first, d_second, _ in DataLoader(disc_data_sampler, batch_size=1):
 
@@ -90,9 +90,10 @@ if __name__ == '__main__':
                 bce_loss.backward()
                 disc_optim.step()
 
-            gen_optim.zero_grad()
-
+            generator.train(True)
             discriminator.train(False)
+
+            gen_optim.zero_grad()
 
             # x = gen_util.postprocess(first[0])
             # y = gen_util.postprocess(second[0])
