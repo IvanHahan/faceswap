@@ -19,6 +19,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectId" id="1aiW5rVY0O4YMMOWSikZjaxsJEO" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -200,7 +201,7 @@
       <workItem from="1589998364763" duration="4645000" />
       <workItem from="1590004301838" duration="59000" />
       <workItem from="1590004417955" duration="8201000" />
-      <workItem from="1590132763966" duration="69000" />
+      <workItem from="1590132763966" duration="2053000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1587830273080</created>
@@ -489,14 +490,27 @@
       <option name="project" value="LOCAL" />
       <updated>1590050199708</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="disable discriminator training while train generator">
+      <created>1590133055481</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1590133055481</updated>
+    </task>
+    <task id="LOCAL-00043" summary="disable discriminator training while train generator">
+      <created>1590133106265</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1590133106265</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add cuda" />
     <MESSAGE value="fix triple loss" />
     <MESSAGE value="change unet output to tanh" />
     <MESSAGE value="add ranger optim" />
@@ -521,7 +535,8 @@
     <MESSAGE value="update demo function" />
     <MESSAGE value="fix my dataset sampling" />
     <MESSAGE value="remove redundant logging" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove redundant logging" />
+    <MESSAGE value="disable discriminator training while train generator" />
+    <option name="LAST_COMMIT_MESSAGE" value="disable discriminator training while train generator" />
   </component>
   <component name="WindowStateProjectService">
     <state x="429" y="260" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588430311218">
@@ -532,10 +547,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1588432845744" />
-    <state x="314" y="52" key="CommitChangelistDialog2" timestamp="1590133055012">
+    <state x="314" y="52" key="CommitChangelistDialog2" timestamp="1590133105959">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="314" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1590133055012" />
+    <state x="314" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1590133105959" />
     <state width="1440" height="438" key="DebuggerActiveHint" timestamp="1588146767184">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -596,10 +611,14 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="500" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1590050105387" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1590133062488">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1590133107554">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1590133062488" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1590133107554" />
+    <state x="503" y="374" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1590136485279">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="503" y="374" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1590136485279" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1587924427810">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
