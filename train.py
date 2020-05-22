@@ -12,6 +12,7 @@ from tqdm import tqdm
 import argparse
 from utils.path import make_dir_if_needed
 from ranger import ranger
+from torch.optim import Adam
 from percept_loss import PerceptualLoss
 import matplotlib.pyplot as plt
 import os
@@ -64,8 +65,8 @@ if __name__ == '__main__':
 
     compute_perceptual = PerceptualLoss().to(device)
 
-    gen_optim = ranger(generator.parameters())
-    disc_optim = ranger(discriminator.parameters())
+    gen_optim = Adam(generator.parameters())
+    disc_optim = Adam(discriminator.parameters())
 
     losses = []
 
@@ -101,7 +102,7 @@ if __name__ == '__main__':
 
             percept_loss = compute_perceptual(gen_out, second[0])
 
-            fake_out = discriminator(generator(torch.cat([second[0], first[1]], 1))).view((-1))
+            fake_out = discriminator(gen_out).view((-1))
 
             label = torch.Tensor([1]).to(device)
 
