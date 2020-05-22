@@ -92,6 +92,18 @@ if __name__ == '__main__':
 
             gen_optim.zero_grad()
 
+            discriminator.train(False)
+
+            # x = gen_util.postprocess(first[0])
+            # y = gen_util.postprocess(second[0])
+            # z = gen_util.postprocess(third[0])
+            # plt.imshow(x)
+            # plt.show()
+            # plt.imshow(y)
+            # plt.show()
+            # plt.imshow(z)
+            # plt.show()
+
             gen_out = generator(torch.cat([first[0], second[1]], 1))
 
             pix_loss = torch.square(gen_out - second[0]).mean()
