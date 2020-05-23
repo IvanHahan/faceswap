@@ -26,7 +26,7 @@ class YoutubeFaces(Dataset):
 
     def __getitem__(self, item):
 
-        person_dir = os.path.join(self.dir, self.names[item])
+        person_dir = os.path.join(self.dir, self.names[np.random.randint(0, len(self.names))])
 
         return self.sample_triplet(person_dir)
 
@@ -70,4 +70,4 @@ class YoutubeFaces(Dataset):
     def __len__(self):
         if self.len:
             return self.len
-        return len(self.names)
+        return len(self.names) * 100
